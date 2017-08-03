@@ -9,6 +9,7 @@ public class Calculator {
         return b - a;
     }
     public static void main(String args[]){
+        Calculator calculator = new Calculator();
         System.out.println(calculator.addAToB(10, 15));
     }
 }
