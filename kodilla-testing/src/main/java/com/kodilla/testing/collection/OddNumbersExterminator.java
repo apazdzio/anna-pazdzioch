@@ -16,5 +16,9 @@ public class OddNumbersExterminator {
             }
         }
         System.out.println("Lista zawiera " + theList.size() + " liczb, z tego " + evenNumbers.size() + " to liczby parzyste");
+        System.out.println("Lista liczb parzystych:");
+        for(Integer even: evenNumbers) {
+            System.out.println(even);
+        }
     }
 }
