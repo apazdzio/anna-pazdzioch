@@ -8,8 +8,8 @@ public class Square implements Shape {
         this.side = side;
     }
 
-    public void getShapeName() {
-        System.out.println("This is a square.");
+    public String getShapeName() {
+        return "This is a square.";
     }
 
     public double getField() {

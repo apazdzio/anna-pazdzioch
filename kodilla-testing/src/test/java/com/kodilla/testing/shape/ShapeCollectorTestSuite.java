@@ -4,6 +4,7 @@ import org.junit.*;
 
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
+    private Square square;
 
     @BeforeClass
     public static void beforeAllTests() {
@@ -19,20 +20,20 @@ public class ShapeCollectorTestSuite {
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
+        Square square = new Square(5.0);
     }
     @Test
     public void testAddFigure() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         //When
-        shapeCollector.addFigure(new Circle(5));
+        shapeCollector.addFigure(square);
         //Then
         Assert.assertEquals(1, shapeCollector.getShapesQuantity());
     }
     @Test
     public void testRemoveFigure() {
         //Given
-        Square square = new Square(5);
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
         //When
@@ -44,7 +45,6 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigure() {
         //Given
-        Square square = new Square(5);
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
         //When
@@ -53,7 +53,15 @@ public class ShapeCollectorTestSuite {
         Assert.assertEquals(square, retrievedFigure);
     }
     @Test
-    public void testShowFigure() {
-
+    public void testShowFigures() {
+        //Given
+        Square square = new Square(5.0);
+        ShapeCollector shapeCollector = new ShapeCollector();
+        shapeCollector.addFigure(square);
+        //When
+        String retrievedString = shapeCollector.showFigures();
+        String expectedString = "This is a square.";
+        //Then
+        Assert.assertEquals(expectedString, retrievedString);
     }
 }

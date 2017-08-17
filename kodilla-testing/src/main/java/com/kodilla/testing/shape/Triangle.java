@@ -10,8 +10,8 @@ public class Triangle implements Shape {
             this.height = height;
         }
 
-        public void getShapeName() {
-            System.out.println("This is a triangle.");
+        public String getShapeName() {
+            return "This is a triangle.";
         }
 
         public double getField() {

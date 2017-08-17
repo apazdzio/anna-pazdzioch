@@ -9,12 +9,11 @@ public class Circle implements Shape {
         this.radius = radius;
     }
 
-    public void getShapeName() {
-        System.out.println("This is a circle.");
+    public String getShapeName() {
+        return "This is a circle.";
     }
 
     public double getField() {
-
         return PI * Math.pow(this.radius, 2);
     }
 }

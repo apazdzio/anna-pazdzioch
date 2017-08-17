@@ -7,21 +7,28 @@ public class ShapeCollector {
     ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     public void addFigure(Shape shape){
-
+        shapes.add(shape);
     }
     public boolean removeFigure(Shape shape){
-
-        return true;
+        boolean result = false;
+        if (shapes.contains(shape)){
+            shapes.remove(shape);
+            result = true;
+        }
+        return result;
     }
     public Shape getFigure(int n){
-        return null;
-    }
+        return shapes.get(n);   }
 
-    public Shape showFigures(){
-        return null;
+    public String showFigures() {
+        String shapeShow = null;
+        for (Shape shape : shapes){
+            shapeShow = shape.getShapeName();
+        }
+        return shapeShow;
     }
 
     public int getShapesQuantity(){
-        return 0;
+        return shapes.size();
     }
 }
