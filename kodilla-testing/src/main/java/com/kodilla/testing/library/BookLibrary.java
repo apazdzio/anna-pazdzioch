@@ -5,6 +5,7 @@ import java.util.List;
 
 public class BookLibrary {
     LibraryDatabase libraryDatabase;
+    Book book;
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
         this.libraryDatabase = libraryDatabase;
