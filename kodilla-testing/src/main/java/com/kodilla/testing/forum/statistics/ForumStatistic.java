@@ -4,9 +4,9 @@ public class ForumStatistic {
     private int quantityOfPosts;
     private int quantityOfComments;
     private int quantityOfUsers;
-    private double averPostsPerUser;
-    private double averCommentsPerUser;
-    private double averCommentsPerPost;
+    private int averPostsPerUser;
+    private int averCommentsPerUser;
+    private int averCommentsPerPost;
 
     public int getQuantityOfPosts() {
         return quantityOfPosts;
@@ -20,27 +20,41 @@ public class ForumStatistic {
         return quantityOfUsers;
     }
 
-    public double getAverPostsPerUser() {
+    public int getAverPostsPerUser() {
         return averPostsPerUser;
     }
 
-    public double getAverCommentsPerUser() {
+    public int getAverCommentsPerUser() {
         return averCommentsPerUser;
     }
 
-    public double getAverCommentsPerPost() {
+    public int getAverCommentsPerPost() {
         return averCommentsPerPost;
     }
 
-    public void calculateAdvStatistics(Statistics statistics){
+    @Override
+    public String toString() {
+        return "ForumStatistic{" +
+                "quantityOfPosts=" + quantityOfPosts +
+                ", quantityOfComments=" + quantityOfComments +
+                ", quantityOfUsers=" + quantityOfUsers +
+                ", averPostsPerUser=" + averPostsPerUser +
+                ", averCommentsPerUser=" + averCommentsPerUser +
+                ", averCommentsPerPost=" + averCommentsPerPost +
+                '}';
+    }
+
+    public void calculateAdvStatistics(Statistics statistics) {
         quantityOfPosts = statistics.postsCount();
         quantityOfComments = statistics.commentsCount();
         quantityOfUsers = statistics.usersNames().size();
-        averPostsPerUser = quantityOfPosts / quantityOfUsers;
-        averCommentsPerUser = quantityOfComments / quantityOfUsers;
-        averCommentsPerPost = quantityOfComments / quantityOfPosts;
-    };
-
-    public void ShowStatistics(){};
-
+        if (quantityOfUsers > 0 && quantityOfPosts > 0) {
+            averPostsPerUser = quantityOfPosts / quantityOfUsers;
+            averCommentsPerUser = quantityOfComments / quantityOfUsers;
+            averCommentsPerPost = quantityOfComments / quantityOfPosts;
+        }
+    }
+    static void showStatistics(ForumStatistic forumStatistic) {
+        System.out.println(forumStatistic);
+    }
 }

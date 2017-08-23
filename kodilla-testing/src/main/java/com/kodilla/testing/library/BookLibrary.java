@@ -19,4 +19,14 @@ public class BookLibrary {
         bookList = resultList;
         return bookList;
     }
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        List<Book> bookList = new ArrayList<Book>();
+        Book book1 = new Book("The book title1", "The book author1", 2001);
+        Book book2 = new Book("The book title2", "The book author2", 2002);
+        bookList.add(book1);
+        bookList.add(book2);
+
+        // temporary returning list of two books
+        return bookList;
+    }
 }
