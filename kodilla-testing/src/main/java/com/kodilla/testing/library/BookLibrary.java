@@ -5,7 +5,6 @@ import java.util.List;
 
 public class BookLibrary {
     LibraryDatabase libraryDatabase;
-    Book book;
 
     public BookLibrary(LibraryDatabase libraryDatabase) {
         this.libraryDatabase = libraryDatabase;
@@ -29,5 +28,8 @@ public class BookLibrary {
 
         // temporary returning list of two books
         return bookList;
+    }
+    boolean rentABook(LibraryUser libraryUser, Book book){
+        return true;
     }
 }
