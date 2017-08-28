@@ -20,16 +20,17 @@ public class BookLibrary {
         return bookList;
     }
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookList = new ArrayList<Book>();
-        Book book1 = new Book("The book title1", "The book author1", 2001);
-        Book book2 = new Book("The book title2", "The book author2", 2002);
-        bookList.add(book1);
-        bookList.add(book2);
-
-        // temporary returning list of two books
-        return bookList;
+        return libraryUser.getBookList();
     }
-    boolean rentABook(LibraryUser libraryUser, Book book){
-        return true;
+    public boolean rentABook(LibraryUser libraryUser, Book book) {
+        List<Book> bookList = libraryUser.getBookList();
+        boolean result = false;
+        if(bookList.size() >=5 || bookList.contains(book)) {
+            result = false;
+        }else{
+            bookList.add(book);
+            result = true;
+        }
+        return result;
     }
 }
