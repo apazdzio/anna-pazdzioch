@@ -22,6 +22,7 @@ public class BookLibrary {
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
         return libraryUser.getBookList();
     }
+
     public boolean rentABook(LibraryUser libraryUser, Book book) {
         List<Book> bookList = libraryUser.getBookList();
         boolean result = false;
