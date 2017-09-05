@@ -33,10 +33,10 @@ public final class MovieStore {
 class StreamMain {
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
-        String theResultStringOfMoovies = movieStore.getMovies().entrySet().stream()
+        String theResultStringOfMovies = movieStore.getMovies().entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream())
                 .collect(Collectors.joining(",!","!","!"));
 
-        System.out.println(theResultStringOfMoovies);
+        System.out.println(theResultStringOfMovies);
     }
 }
