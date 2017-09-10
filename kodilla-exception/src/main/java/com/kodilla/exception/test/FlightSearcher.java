@@ -37,7 +37,7 @@ public class FlightSearcher {
             flightSearcher.findFlight(flight1);
 
         } catch (RouteNotFoundException e) {
-            System.out.println("Direction not found");
+            System.out.println(e.getMessage());
         } finally {
             System.out.println("Date of last search: " + LocalDate.now());
         }
