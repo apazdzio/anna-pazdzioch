@@ -6,29 +6,29 @@ import java.util.Map;
 
 public class FlightSearcher {
 
-    public void findFlight(Flight flight) throws RouteNotFoundException{
+    public boolean findFlight(Flight flight) throws RouteNotFoundException{
         Map<String, Boolean> flightMap = new HashMap<>();
             flightMap.put("Wroclaw", true);
             flightMap.put("Paris", true);
             flightMap.put("Viena", true);
             flightMap.put("London", false);
 
-            for (Map.Entry<String, Boolean> entry :flightMap.entrySet()) {
-                if (flight.getArrivalAirport().equals(entry.getKey())) {
-                    System.out.println("Can I fly to " + entry.getKey() + "?  " + entry.getValue());
-                }
+        boolean isPossibleToFly = false;
+        for (Map.Entry<String, Boolean> entry :flightMap.entrySet()) {
+            if (!flight.getArrivalAirport().equals(entry.getKey())) {
                 throw new RouteNotFoundException("Direction not found");
             }
+            isPossibleToFly = entry.getValue();
+        };
+        return isPossibleToFly;
     }
     public static void main(String[] args){
         Flight flight1 = new Flight("Warsaw", "Paris");
-        Flight flight2 = new Flight("Warsaw", "London");
-        Flight flight3 = new Flight("Warsaw", "Moscow");
+
         FlightSearcher flightSearcher = new FlightSearcher();
         try {
             flightSearcher.findFlight(flight1);
-            flightSearcher.findFlight(flight2);
-            flightSearcher.findFlight(flight3);
+
         } catch (RouteNotFoundException e) {
             System.out.println("Direction not found");
         } finally {
