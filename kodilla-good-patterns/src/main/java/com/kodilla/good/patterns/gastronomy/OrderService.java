@@ -10,7 +10,8 @@ public class OrderService {
         this.contractor = contractor;
         this.product = product;
     }
+
     public boolean order(){
-        return this.contractor.process(this.product);
+       return contractor.process(product);
     }
 }
