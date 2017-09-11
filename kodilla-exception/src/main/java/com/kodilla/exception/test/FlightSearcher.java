@@ -16,15 +16,9 @@ public class FlightSearcher {
         flightMap.put("London", false);
 
         boolean isPossibleToFly = false;
-        boolean isInMap = false;
-        for (Map.Entry<String, Boolean> entry :flightMap.entrySet()) {
-            if (flight.getArrivalAirport().equals(entry.getKey())) {
-                System.out.println("Can you fly to " + entry.getKey() + "? " + entry.getValue());
-                isPossibleToFly = entry.getValue();
-                isInMap = true;
-            }
-        };
-        if(isInMap) {
+        if(flightMap.containsKey(flight.getArrivalAirport())) {
+            isPossibleToFly = flightMap.get(flight.getArrivalAirport());
+            System.out.println("Can you fly to " + flight.getArrivalAirport() + "? " + isPossibleToFly);
             return isPossibleToFly;
         }
         throw new RouteNotFoundException("Direction not found");
@@ -35,7 +29,6 @@ public class FlightSearcher {
         FlightSearcher flightSearcher = new FlightSearcher();
         try {
             flightSearcher.findFlight(flight1);
-
         } catch (RouteNotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
