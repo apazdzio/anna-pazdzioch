@@ -4,11 +4,11 @@ package com.kodilla.good.patterns.airlines;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Flights {
+public final class FlightList {
 
     private final List<Flight> theList = new ArrayList<>();
 
-    public Flights() {
+    public FlightList() {
         theList.add(new Flight("Warsaw", "Wroclaw"));
         theList.add(new Flight("Warsaw", "Gdansk"));
         theList.add(new Flight("Warsaw", "Cracow"));

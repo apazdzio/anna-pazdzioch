@@ -11,15 +11,15 @@ public class ProductOrderService {
         this.orderRepository = orderRepository;
     }
 
-    public boolean process(OrderRequest orderRequest) {
+    public Product process(OrderRequest orderRequest) {
 
         boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getProduct());
         if (isOrdered) {
             informationService.sendInfo(orderRequest.getUser());
             orderRepository.saveOrder(orderRequest);
-            return true;
+            return orderRequest.getProduct();
         } else {
-            return false;
+            return null;
         }
     }
 }
