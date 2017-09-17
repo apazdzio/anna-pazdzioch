@@ -9,6 +9,6 @@ public class Application {
         FlightSearchEngine flightSearchEngineVia = new FlightSearchEngine(new SearchForFlightsVia(flightList));
         flightSearchEngineTo.find("Wroclaw");
         flightSearchEngineFrom.find("Cracow");
-        flightSearchEngineVia.find("Warsaw");
+        flightSearchEngineVia.find("Cracow");
     }
 }
