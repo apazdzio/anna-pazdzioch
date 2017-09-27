@@ -5,26 +5,38 @@ import org.junit.Test;
 
 public class TaskFactoryTestSuite {
     @Test
-    public void testDrivingTaskFactory(){
+    public void testDrivingTaskFactory() {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
         Task task1 = factory.makeTask(TaskFactory.DRIVING);
-        factory.process(task1);
-        //then
+        task1.executeTask();
+        //Then
         Assert.assertEquals("Transport", task1.getTaskName());
-        Assert.assertEquals(1, factory.getTasks().size());
+        Assert.assertTrue(task1.isTaskExecuted());
     }
+
     @Test
-    public void testPaintingTaskFactory(){
+    public void testPaintingTaskFactory() {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
         Task task2 = factory.makeTask(TaskFactory.PAINTING);
-        factory.process(task2);
-        //then
+        //Then
         Assert.assertEquals("Portrait", task2.getTaskName());
-        Assert.assertTrue(factory.getTasks().contains(task2));
+        Assert.assertFalse(task2.isTaskExecuted());
+    }
+
+    @Test
+    public void testShoppingTaskFactory() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+        //When
+        Task task3 = factory.makeTask(TaskFactory.SHOPPING);
+        task3.executeTask();
+        //Then
+        Assert.assertEquals("Shopping", task3.getTaskName());
+        Assert.assertTrue(task3.isTaskExecuted());
     }
 
 }

@@ -10,22 +10,39 @@ public class LibraryTestSuite {
     public void testGetBooks(){
         //Given
         Library library = new Library("Library 1");
-        library.getBooks().add(new Book("Book1", "Author1", LocalDate.of(1988, 10, 12)));
-        library.getBooks().add(new Book("Book2", "Author2", LocalDate.of(1998, 2, 28)));
-        library.getBooks().add(new Book("Book3", "Author3", LocalDate.of(2008, 7, 3)));
+        Book book1 = new Book("Book1", "Author1", LocalDate.of(1988, 10, 12));
+        Book book2 = new Book("Book2", "Author2", LocalDate.of(1998, 2, 28));
+        Book book3 = new Book("Book3", "Author3", LocalDate.of(2008, 7, 3));
+        library.getBooks().add(book1);
+        library.getBooks().add(book2);
+        library.getBooks().add(book3);
 
-        Library clonedLibrary = null;
+        Library shallowClonedLibrary = null;
         try {
-            clonedLibrary = library.shallowCopy();
-            clonedLibrary.setName("Library 2");
+            shallowClonedLibrary = library.shallowCopy();
+            shallowClonedLibrary.setName("Library 2");
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
-        System.out.println(library);
-        System.out.println(clonedLibrary);
 
-        //When&Then
-        Assert.assertEquals(3, clonedLibrary.getBooks().size());
-        Assert.assertEquals(library.getBooks(), clonedLibrary.getBooks());
+        Library deepClonedLibrary = null;
+        try {
+            deepClonedLibrary = library.deepCopy();
+            deepClonedLibrary.setName("Library 3");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
+        //When
+        library.getBooks().remove(book1);
+
+        //Then
+        Assert.assertEquals(2, library.getBooks().size());
+        Assert.assertEquals(2, shallowClonedLibrary.getBooks().size());
+        Assert.assertEquals(3, deepClonedLibrary.getBooks().size());
+
+        Assert.assertEquals(shallowClonedLibrary.getBooks(), library.getBooks());
+        Assert.assertNotEquals(deepClonedLibrary.getBooks(), library.getBooks());
     }
+
 }

@@ -12,4 +12,12 @@ public class LoggerTestSuite {
         //Then
         Assert.assertEquals("2017-09-09", date);
     }
+    @Test
+    public void testEnumLog(){
+        //When
+        LoggerEnum.INSTANCE.log("2017-09-09");
+        String date = LoggerEnum.INSTANCE.getLastLog();
+        //Then
+        Assert.assertEquals("2017-09-09", date);
+    }
 }

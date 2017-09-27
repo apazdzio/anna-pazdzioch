@@ -1,9 +1,9 @@
 package com.kodilla.patterns.factory.tasks;
 
-public class PaintingTask implements Task{
-    String taskName;
-    String color;
-    String whatToPaint;
+public class PaintingTask extends AbstractTask implements Task{
+    private String taskName;
+    private String color;
+    private String whatToPaint;
 
     public PaintingTask(String taskName, String color, String whatToPaint) {
         this.taskName = taskName;
@@ -12,9 +12,7 @@ public class PaintingTask implements Task{
     }
 
     @Override
-    public void executeTask() {
-        System.out.println("I'm painting.");
-    }
+    public void executeTask() { this.setExecuted(true); }
 
     @Override
     public String getTaskName() {
@@ -22,7 +20,5 @@ public class PaintingTask implements Task{
     }
 
     @Override
-    public boolean isTaskExecuted() {
-        return true;
-    }
+    public boolean isTaskExecuted() { return this.isExecuted(); }
 }

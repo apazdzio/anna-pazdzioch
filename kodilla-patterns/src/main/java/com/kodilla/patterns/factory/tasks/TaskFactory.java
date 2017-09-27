@@ -8,18 +8,7 @@ public class TaskFactory {
     public static final String PAINTING = "PaintingTask";
     public static final String SHOPPING = "ShoppingTask";
 
-    final List<Task> doneTasks = new ArrayList<>();
-
     public TaskFactory() {
-    }
-
-    public List<Task> getTasks() {
-        return doneTasks;
-    }
-
-    public void process(Task task) {
-        if(task.isTaskExecuted())
-            doneTasks.add(task);
     }
 
     public final Task makeTask(String className) {

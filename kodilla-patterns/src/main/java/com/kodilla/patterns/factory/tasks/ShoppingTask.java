@@ -3,10 +3,10 @@ package com.kodilla.patterns.factory.tasks;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingTask implements Task{
-    String taskName;
-    String whatToBuy;
-    double quantity;
+public class ShoppingTask extends AbstractTask implements Task{
+    private String taskName;
+    private String whatToBuy;
+    private double quantity;
 
     public ShoppingTask(String taskName, String whatToBuy, double quantity) {
         this.taskName = taskName;
@@ -15,8 +15,7 @@ public class ShoppingTask implements Task{
     }
 
     @Override
-    public void executeTask() {
-    }
+    public void executeTask() { this.setExecuted(true); }
 
     @Override
     public String getTaskName() {
@@ -25,6 +24,6 @@ public class ShoppingTask implements Task{
 
     @Override
     public boolean isTaskExecuted() {
-        return true;
+        return this.isExecuted();
     }
 }
