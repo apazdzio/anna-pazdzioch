@@ -17,11 +17,11 @@ public class BigmacTestSuite {
         System.out.println(bigmac);
         //When
         Roll whichRoll = bigmac.getRoll();
-        int hoManyBurgers = bigmac.getBurgers();
+        int howManyBurgers = bigmac.getBurgers();
         int howManyIngredients = bigmac.getIngredients().size();
         //Then
         Assert.assertEquals(Roll.SESAME, whichRoll);
-        Assert.assertEquals(2, hoManyBurgers);
+        Assert.assertEquals(2, howManyBurgers);
         Assert.assertEquals(2, howManyIngredients);
     }
 }
