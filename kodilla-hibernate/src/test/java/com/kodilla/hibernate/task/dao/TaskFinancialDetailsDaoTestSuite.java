@@ -14,13 +14,12 @@ import java.util.List;
 @SpringBootTest
 public class TaskFinancialDetailsDaoTestSuite {
     @Autowired
-    TaskFinancialDetailsDao taskFinancialDetailsDao;
+    private TaskFinancialDetailsDao taskFinancialDetailsDao;
 
     @Test
     public void testFindByPaid() {
         //Given
-        TaskFinancialDetails taskFinancialDetails =
-                new TaskFinancialDetails(new BigDecimal(115), false);
+        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), false);
         taskFinancialDetailsDao.save(taskFinancialDetails);
         int id = taskFinancialDetails.getId();
 
