@@ -22,13 +22,12 @@ public class Invoice {
 
     @Id
     @GeneratedValue
-    @NotNull
-    @Column(name = "INVOICE_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
-    @Column(name = "PRICE")
+    @Column(name = "NUMBER", unique = true)
     public String getNumber() {
         return number;
     }
