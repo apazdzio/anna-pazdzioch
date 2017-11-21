@@ -14,4 +14,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
 
     @Query
     List<Employee> retrieveEmployeeWithLastname(@Param("LASTNAME")String lastname);
+
+    @Query
+    List<Employee> retrieveEmployee(@Param("ARG") String string);
 }

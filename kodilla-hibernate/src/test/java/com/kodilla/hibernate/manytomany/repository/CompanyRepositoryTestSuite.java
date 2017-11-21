@@ -68,7 +68,7 @@ public class CompanyRepositoryTestSuite {
     @Test
     public void testNamedQueries(){
 
-        //Gives
+        //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");

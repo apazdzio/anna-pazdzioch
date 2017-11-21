@@ -14,7 +14,9 @@ import java.util.List;
 @Repository
 public interface CompanyRepository extends CrudRepository<Company, Integer> {
 
-    @Query
+    @Query(nativeQuery = true)
     List<Company> retrieveCompanyWhoseNameBegins(@Param("STRING") String string);
 
+    @Query
+    List<Company> retrieveCompany(@Param("ARG") String string);
 }
