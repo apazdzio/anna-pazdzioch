@@ -75,4 +75,18 @@ public class Employee {
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" + firstname + " " + lastname + '}';
+    }
+
+    public static void showResult(List<Employee> list){
+        if(list.size() > 0) {
+            for (Employee employee : list) {
+                System.out.println(employee);}
+        } else {
+            System.out.println("No worker found.");
+        }
+    }
 }

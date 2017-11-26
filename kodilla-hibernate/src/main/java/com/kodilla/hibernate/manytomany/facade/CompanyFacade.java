@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static com.kodilla.hibernate.manytomany.Company.getResult;
+import static com.kodilla.hibernate.manytomany.Employee.showResult;
+
 @Component
 public class CompanyFacade {
     @Autowired
@@ -16,11 +19,15 @@ public class CompanyFacade {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    List<Company> findCompany(String string){
-        return companyRepository.retrieveCompany(string);
+    List<Company> findCompany(String string) {
+        List<Company> list = companyRepository.retrieveCompany(string);
+        getResult(list);
+        return list;
     }
 
-    List<Employee> findEmployee(String string){
-        return employeeRepository.retrieveEmployee(string);
+    List<Employee> findEmployee(String string) {
+        List<Employee> list = employeeRepository.retrieveEmployee(string);
+        showResult(list);
+        return list;
     }
 }

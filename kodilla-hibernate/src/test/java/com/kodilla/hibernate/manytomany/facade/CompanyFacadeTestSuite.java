@@ -25,7 +25,7 @@ public class CompanyFacadeTestSuite {
     private EmployeeRepository employeeRepository;
 
         @Test
-        public void testNamedQueries() {
+        public void testCompanyFacade() {
 
             //Given
             Employee johnSmith = new Employee("John", "Smith");
@@ -57,10 +57,12 @@ public class CompanyFacadeTestSuite {
 
             //When
             List<Employee> foundEmployee = companyFacade.findEmployee("%mi%");
+            List<Employee> foundZeroEmployee = companyFacade.findEmployee("%abr%");
             List<Company> foundCompany = companyFacade.findCompany("%at%");
 
             //Then
-            Assert.assertEquals(1, foundEmployee.size());
-            Assert.assertEquals(2, foundCompany.size());
+            Assert.assertEquals(13, foundEmployee.size());
+            Assert.assertEquals(0, foundZeroEmployee.size());
+            Assert.assertEquals(26, foundCompany.size());
         }
 }

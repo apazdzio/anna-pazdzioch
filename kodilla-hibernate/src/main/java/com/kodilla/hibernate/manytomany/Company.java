@@ -58,4 +58,18 @@ public class Company {
     private void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" + name + '}';
+    }
+
+    public static void getResult(List<Company> list){
+        if(list.size() > 0) {
+            for (Company company : list) {
+                System.out.println(company);}
+        } else {
+            System.out.println("No company found.");
+        }
+    }
 }

@@ -71,7 +71,7 @@ public class ShopServiceTestSuite {
         order.addItem(new ItemDto(24L, 1));
         order.addItem(new ItemDto(21L, 2));
         try{
-            orderFacade.processOrder(order, 1L);
+            orderFacade.processOrder(order, 16782L);
         } catch (OrderProcessingException e){
 
         }
