@@ -61,8 +61,8 @@ public class CompanyFacadeTestSuite {
             List<Company> foundCompany = companyFacade.findCompany("%at%");
 
             //Then
-            Assert.assertEquals(13, foundEmployee.size());
+            Assert.assertEquals(1, foundEmployee.size());
             Assert.assertEquals(0, foundZeroEmployee.size());
-            Assert.assertEquals(26, foundCompany.size());
+            Assert.assertEquals(2, foundCompany.size());
         }
 }
